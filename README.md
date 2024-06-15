@@ -5,7 +5,6 @@
 The cpp-module-08 project from School 42 focuses on templated containers, iterators, and algorithms in C++. This module provides an in-depth look at these advanced features, their syntax, and their practical applications in C++ programming.
 
 
-![Data Structures](Containers.png)
 
 ## Table of Contents
 
@@ -13,6 +12,7 @@ The cpp-module-08 project from School 42 focuses on templated containers, iterat
 	- [Overview](#overview)
 	- [Table of Contents](#table-of-contents)
 	- [Introduction to Templated Containers](#introduction-to-templated-containers)
+			- [\[Different Types of Containers\]:](#different-types-of-containers)
 		- [Key Concepts](#key-concepts)
 	- [Vector](#vector)
 		- [Syntax](#syntax)
@@ -36,6 +36,10 @@ The cpp-module-08 project from School 42 focuses on templated containers, iterat
 ## Introduction to Templated Containers
 
 Templated containers in C++ are generic classes that store collections of objects. The Standard Template Library (STL) provides a rich set of templated containers such as vector, list, map, and set.
+
+
+#### [Different Types of Containers]:
+![Data Structures](Containers.png)
 
 ### Key Concepts
 
