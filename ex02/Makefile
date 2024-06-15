@@ -6,11 +6,11 @@
 #    By: ebmarque <ebmarque@student.42porto.com     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/15 16:26:51 by ebmarque          #+#    #+#              #
-#    Updated: 2024/06/15 16:26:55 by ebmarque         ###   ########.fr        #
+#    Updated: 2024/06/15 19:56:08 by ebmarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = MutantStack
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
@@ -20,7 +20,7 @@ OBJ_DIR = objects
 INCLUDE_DIR = includes
 
 
-SRCS = $(addprefix $(SRC_DIR)/,  main.cpp )
+SRCS = $(addprefix $(SRC_DIR)/,  main.cpp ) #includes/MutantStack.hpp includes/MutantStack.tpp 
 
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.cpp=.o)))
