@@ -5,7 +5,7 @@
 The cpp-module-08 project from School 42 focuses on templated containers, iterators, and algorithms in C++. This module provides an in-depth look at these advanced features, their syntax, and their practical applications in C++ programming.
 
 
-![Data Structures](DataStructures.png)
+![Data Structures](Containers.png)
 
 ## Table of Contents
 
