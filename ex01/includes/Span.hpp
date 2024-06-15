@@ -6,7 +6,7 @@
 /*   By: ebmarque <ebmarque@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:47:21 by ebmarque          #+#    #+#             */
-/*   Updated: 2024/06/15 14:22:55 by ebmarque         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:14:18 by ebmarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #include <algorithm>
 #include <exception>
 #include <list>
+#include <limits.h>
 
 class Span
 {
@@ -34,7 +35,7 @@ class Span
 	public:
 
 		void	print(void);	
-		void	addNumber(int value);	
+		void	addNumber(long long int value);	
 		int 	shortestSpan(void);
 		int 	longestSpan(void);
 		

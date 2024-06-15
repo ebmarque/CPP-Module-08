@@ -6,7 +6,7 @@
 /*   By: ebmarque <ebmarque@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:21:39 by ebmarque          #+#    #+#             */
-/*   Updated: 2024/06/15 15:57:49 by ebmarque         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:22:17 by ebmarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void Span::print(void)
 	typedef std::list<int>::const_iterator lst_it;
 	for (lst_it it = store.begin(); it != store.end(); it++)
 	{
-		std::cout << CYAN << *it << ", " << RESET;
+		std::cout << CYAN << *it << RESET << std::endl;
 	}
 }
 
@@ -60,8 +60,10 @@ Span::~Span()
 	LOG("[SPAN]: Object deleted.", RED);
 }
 
-void Span::addNumber(int value) 
+void Span::addNumber(long long int value) 
 {
+	if (value < INT_MIN || value > INT_MAX)
+		throw std::out_of_range("Element value is out of Integer limits.");
 	if (this->size > this->store.size())
 	{
 		// std::cout << YELLOW << "[SPAN]: " << value << " ADDED." << std::string(10, char(256)) << "\r" << RESET;
