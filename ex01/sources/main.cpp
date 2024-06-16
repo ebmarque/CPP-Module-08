@@ -6,47 +6,23 @@
 /*   By: ebmarque <ebmarque@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:44:14 by ebmarque          #+#    #+#             */
-/*   Updated: 2024/06/15 18:21:59 by ebmarque         ###   ########.fr       */
+/*   Updated: 2024/06/16 16:22:55 by ebmarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Span.hpp"
 #include <cmath>
 
-int	main(int argc, char *argv[], char *envp[])
+void	test1(void)
 {
-	(void)argc;
-	(void)argv;
-	(void)envp;
+		std::cout << GREEN << "--------- TEST 1: adding 1 MILION random numbers to Span ---------" << RESET << std::endl;
 
-	std::srand(time(NULL));
-
-
-	try
-	{
 		int containerSize = 1000000;
-		// std::cout << "Enter the size of the container: ";
-		// std::cin >> containerSize;
-
 		Span lst_test(containerSize);
 
-		int min_nbr = -432343;
-		// std::cout << "Enter the minimum number (min_nbr): ";
-		// std::cin >> min_nbr;
-
-		int max_nbr = 1234341;
-		// std::cout << "Enter the maximum number (max_nbr): ";
-		// std::cin >> max_nbr;
-		max_nbr += std::abs(min_nbr) + 1;
-		int numElements = 1000000;
-		// std::cout << "Enter the number of elements to insert: ";
-		// std::cin >> numElements;
-		
-		for (int i = 0; i < numElements; i++)
-		{
-			lst_test.addNumber(min_nbr + (rand() % max_nbr));
-		}
-
+		std::vector<int> numbersToAdd(100);
+		std::generate(numbersToAdd.begin(), numbersToAdd.end(), rand);
+		lst_test.addNumber(numbersToAdd.begin(), numbersToAdd.end());
 		std::cout << BLUE << "\n\nShortest Span: " 
 				<< lst_test.shortestSpan() 
 				<< RESET << std::endl << std::endl; 
@@ -54,14 +30,47 @@ int	main(int argc, char *argv[], char *envp[])
 		std::cout << BLUE << "Longest Span: " 
 				<< lst_test.longestSpan() 
 				<< RESET << std::endl << std::endl; 
-		
-		std::cout << GREEN << "---------------------------------------------" << RESET << std::endl;
-		// lst_test.print();
+		lst_test.print();
+		// std::cout << GREEN << "------------------------------------------------------------------" << RESET << std::endl;
+}
+void	test2(void)
+{
+		std::cout << GREEN << "--------- TEST 2: Trying to add to a full span ---------" << RESET << std::endl;
+
+		int containerSize = 0;
+		Span lst_test(containerSize);
+
+		std::vector<int> numbersToAdd(100);
+		std::generate(numbersToAdd.begin(), numbersToAdd.end(), rand);
+		lst_test.addNumber(numbersToAdd.begin(), numbersToAdd.end());
+		std::cout << BLUE << "\n\nShortest Span: " 
+				<< lst_test.shortestSpan() 
+				<< RESET << std::endl << std::endl; 
+
+		std::cout << BLUE << "Longest Span: " 
+				<< lst_test.longestSpan() 
+				<< RESET << std::endl << std::endl; 
+		lst_test.print();
+		// std::cout << GREEN << "------------------------------------------------------------------" << RESET << std::endl;
+}
+
+
+int	main(void)
+{
+
+	std::srand(time(NULL));
+
+	try
+	{
+		test1();
+		std::cout << GREEN << "------------------------------------------------------------------" << RESET << std::endl;
+		test2();
+		std::cout << GREEN << "------------------------------------------------------------------" << RESET << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
-	}	
+	}
 
 	return (0);
 }

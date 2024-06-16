@@ -6,7 +6,7 @@
 /*   By: ebmarque <ebmarque@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:21:39 by ebmarque          #+#    #+#             */
-/*   Updated: 2024/06/15 18:22:17 by ebmarque         ###   ########.fr       */
+/*   Updated: 2024/06/16 15:55:05 by ebmarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,15 @@ void Span::addNumber(long long int value)
 	if (value < INT_MIN || value > INT_MAX)
 		throw std::out_of_range("Element value is out of Integer limits.");
 	if (this->size > this->store.size())
-	{
-		// std::cout << YELLOW << "[SPAN]: " << value << " ADDED." << std::string(10, char(256)) << "\r" << RESET;
 		this->store.push_back(value);
-	}
+	else
+		throw std::out_of_range("No space left in the container.");
+}
+
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end) 
+{
+	if (static_cast<size_t>(this->size + std::distance(begin, end))> this->store.size())
+		this->store.insert(this->store.end(), begin, end);
 	else
 		throw std::out_of_range("No space left in the container.");
 }

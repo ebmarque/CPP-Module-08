@@ -6,7 +6,7 @@
 /*   By: ebmarque <ebmarque@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:47:21 by ebmarque          #+#    #+#             */
-/*   Updated: 2024/06/15 17:14:18 by ebmarque         ###   ########.fr       */
+/*   Updated: 2024/06/16 15:47:35 by ebmarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 #include <exception>
 #include <list>
 #include <limits.h>
+#include <vector>
 
 class Span
 {
@@ -35,7 +36,8 @@ class Span
 	public:
 
 		void	print(void);	
-		void	addNumber(long long int value);	
+		void	addNumber(long long int value);
+		void	addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		int 	shortestSpan(void);
 		int 	longestSpan(void);
 		
