@@ -6,7 +6,7 @@
 /*   By: ebmarque <ebmarque@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:47:21 by ebmarque          #+#    #+#             */
-/*   Updated: 2024/06/16 15:47:35 by ebmarque         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:06:29 by ebmarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ class Span
 	
 	public:
 
-		void	print(void);	
-		void	addNumber(long long int value);
-		void	addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
-		int 	shortestSpan(void);
-		int 	longestSpan(void);
+		void			print(void);	
+		void			addNumber(long long int value);
+		void			addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		unsigned int 	shortestSpan(void);
+		unsigned int 	longestSpan(void);
 		
 		
 		Span();
