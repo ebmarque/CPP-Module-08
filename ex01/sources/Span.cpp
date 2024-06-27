@@ -6,7 +6,7 @@
 /*   By: ebmarque <ebmarque@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:21:39 by ebmarque          #+#    #+#             */
-/*   Updated: 2024/06/27 16:08:14 by ebmarque         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:10:45 by ebmarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,7 @@ unsigned int Span::shortestSpan(void)
 
 	this->store.sort();
 	typedef std::list<int>::const_iterator lst_it;
-	// lst_it next = store.begin();
-	// next++;
+
 	unsigned int shortest = UINT_MAX;
 	for (lst_it previous = store.begin(), next = ++(store.begin()); next != store.end(); previous++, next++)
 	{
