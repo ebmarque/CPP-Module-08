@@ -6,7 +6,7 @@
 /*   By: ebmarque <ebmarque@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:06:09 by ebmarque          #+#    #+#             */
-/*   Updated: 2024/06/15 19:56:50 by ebmarque         ###   ########.fr       */
+/*   Updated: 2024/06/27 19:10:22 by ebmarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 static void	LOG(std::string msg, const char* color)
 {
-	std::cout << color << msg << std::endl;
+	std::cout << color << msg << RESET << std::endl;
 }
 
 template<typename T>

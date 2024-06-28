@@ -5,118 +5,106 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebmarque <ebmarque@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 19:50:47 by ebmarque          #+#    #+#             */
-/*   Updated: 2024/06/26 14:18:35 by ebmarque         ###   ########.fr       */
+/*   Created: 2024/06/27 18:55:02 by ebmarque          #+#    #+#             */
+/*   Updated: 2024/06/28 11:11:16 by ebmarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/MutantStack.hpp"
+#include <iostream>
 #include <list>
+#include <stack>
+#define GREEN "\033[32m"
+#define RESET "\033[0m"
 
-int main()
+void testList()
 {
-	// Create a MutantStack of integers
-	MutantStack<int> mStack;
-
-	// Push elements onto the stack
-	for (int i = 1; i <= 10; ++i)
+	std::cout << GREEN << "\n\nTEST 1: USING STD::LIST" << RESET << std::endl;
+	std::list<int> mlist;
+	mlist.push_back(5);
+	mlist.push_back(17);
+	mlist.push_back(3);
+	mlist.push_back(5);
+	mlist.push_back(737);
+	mlist.push_back(0);
+	for (std::list<int>::iterator it = mlist.begin(); it != mlist.end(); ++it)
 	{
-		mStack.push(i * 10);
-		std::cout << "Pushed " << i * 10 << " onto the stack.\n";
+		std::cout << "List element: " << *it << std::endl;
 	}
+	std::cout << "List size after additions: " << mlist.size() << std::endl;
+}
 
-	// Access the top element
-	std::cout << "Top element of the stack: " << mStack.top() << "\n";
-
-	// Size of the stack
-	std::cout << "Size of the stack: " << mStack.size() << "\n";
-
-	// Pop an element
-	mStack.pop();
-	std::cout << "Popped the top element. New top: " << mStack.top() << "\n";
-
-	// Use the iterator to print all elements
-	std::cout << "All elements in the stack from bottom to top: ";
-	for (MutantStack<int>::iterator it = mStack.begin(); it != mStack.end(); ++it)
-	{
-		std::cout << *it << " ";
-	}
-	std::cout << "\n";
-
-	// Copy the stack
-	MutantStack<int> mStackCopy = mStack;
-	std::cout << "Copied the stack. Top element of the copied stack: " << mStackCopy.top() << "\n";
-
-	// Compare the top elements of the original and copied stacks
-	if (mStack.top() == mStackCopy.top())
-	{
-		std::cout << "Top elements of the original and copied stacks are equal.\n";
-	}
-	else
-	{
-		std::cout << "Top elements of the original and copied stacks are not equal.\n";
-	}
-
-	std::cout << "/ ***** MutantStack ***** /" << std::endl;
-
+void testMutantStack()
+{
+	std::cout << GREEN << "\n\nTEST 2: USING MUTANTSTACK" << RESET << std::endl;
 	MutantStack<int> mstack;
-
 	mstack.push(5);
 	mstack.push(17);
-
-	std::cout << mstack.top() << std::endl;
-
+	std::cout << "Top element after pushes: " << mstack.top() << std::endl;
 	mstack.pop();
-	std::cout << mstack.size() << std::endl;
-
+	std::cout << "Size after pop: " << mstack.size() << std::endl;
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
-	//[...]
-	mstack.push(0);
+}
 
-	MutantStack<int>::iterator it = mstack.begin();
-	MutantStack<int>::iterator ite = mstack.end();
-	++it;
-	--it;
-
-	while (it != ite)
-	{
-		std::cout << *it << std::endl;
-		++it;
-	}
-	std::stack<int> s(mstack);
-
-	/* -------------------------------------------------------------------- */
-
-	std::cout << std::endl;
-	std::cout << "/ ***** List ***** /" << std::endl;
-
+void enhancedTestListAndMutantStack()
+{
+	std::cout << GREEN << "\n\nENHANCED TEST FOR STD::LIST AND MUTANTSTACK"
+			  << RESET << std::endl;
 	std::list<int> lst;
+	lst.push_back(42);
+	lst.push_back(21);
+	lst.pop_back();
+	std::cout << YELLOW << "\n\nTesting std::list - Size after pop_back: "
+			  << lst.size() << RESET << std::endl;
+	MutantStack<int> mstack;
+	mstack.push(42);
+	mstack.push(21);
+	mstack.pop();
+	std::cout << YELLOW << "\n\nTesting MutantStack - Size after pop: "
+			  << mstack.size() << RESET << std::endl;
+	MutantStack<int> copiedStack(mstack);
+	MutantStack<int> assignedStack;
+	assignedStack = mstack;
+	std::cout << YELLOW << "\n\nTesting Copy and Assignment - Sizes: Copied: "
+			  << copiedStack.size() << ", Assigned: "
+			  << assignedStack.size() << RESET << std::endl;
+}
 
+void testIterators()
+{
+	std::list<int> lst;
 	lst.push_back(5);
 	lst.push_back(17);
-
-	std::cout << lst.back() << std::endl;
-
-	lst.pop_back();
-	std::cout << lst.size() << std::endl;
-
 	lst.push_back(3);
 	lst.push_back(5);
 	lst.push_back(737);
-	//[...]
 	lst.push_back(0);
-
-	std::list<int>::iterator lst_it = lst.begin();
-	std::list<int>::iterator lst_ite = lst.end();
-	++it;
-	--it;
-	while (lst_it != lst_ite)
+	std::cout << GREEN << "\n\nIterating through std::list" << RESET << std::endl;
+	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); ++it)
 	{
-		std::cout << *lst_it << std::endl;
-		++lst_it;
+		std::cout << "List element: " << *it << std::endl;
 	}
-	std::list<int> l(lst);
-	return (0);
+
+	std::cout << GREEN << "\n\nIterating through MutantStack" << RESET << std::endl;
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	mstack.push(0);
+	for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
+	{
+		std::cout << "Stack element: " << *it << std::endl;
+	}
+}
+
+int main()
+{
+	enhancedTestListAndMutantStack();
+	testMutantStack();
+	testIterators();
+	return 0;
 }
